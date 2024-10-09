@@ -14,7 +14,7 @@ class _RandomUserService implements RandomUserService {
     this.baseUrl,
     this.errorLogger,
   }) {
-    baseUrl ??= 'https://randomuser.me/api/';
+    baseUrl ??= 'https://randomuser.me';
   }
 
   final Dio _dio;
@@ -36,7 +36,7 @@ class _RandomUserService implements RandomUserService {
     )
         .compose(
           _dio.options,
-          '/tasks',
+          '/api/',
           queryParameters: queryParameters,
           data: _data,
         )
