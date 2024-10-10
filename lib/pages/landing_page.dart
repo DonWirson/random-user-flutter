@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:random_user/widgets/landing_page/login_form.dart';
-import 'package:random_user/widgets/landing_page/saved_user_table.dart';
+
+import '../database/user_db_provider.dart';
+import '../widgets/landing_page/login_form.dart';
+import '../widgets/landing_page/saved_user_table.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({super.key});
@@ -13,6 +15,12 @@ class _LandingPageState extends State<LandingPage> {
   var obscurePassword = true;
 
   @override
+  void dispose() {
+    super.dispose();
+    UserDbProvider().close();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
@@ -23,20 +31,21 @@ class _LandingPageState extends State<LandingPage> {
           ),
         ),
         body: const Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: 15.0,
+          padding: EdgeInsets.symmetric(
+            horizontal: 15.0,
+          ),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                LoginForm(),//Vista de formulario
+                SizedBox(
+                  height: 20,
+                ),
+                SavedUsersTable(),//Tabla que muestra usuarios
+              ],
             ),
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  LoginForm(),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  SavedUserTable(),
-                ],
-              ),
-            )),
+          ),
+        ),
       ),
     );
   }

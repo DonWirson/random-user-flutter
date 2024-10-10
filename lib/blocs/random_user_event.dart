@@ -7,4 +7,16 @@ abstract class RandomUserEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class GotRandomUser extends RandomUserEvent{}
+class GotRandomUser extends RandomUserEvent {}
+
+class InsertedNewUser extends RandomUserEvent {
+  final User user;
+
+  const InsertedNewUser({
+    required this.user,
+  });
+  @override
+  List<Object> get props => [user];
+}
+
+class GotLocalUsers extends RandomUserEvent {}
