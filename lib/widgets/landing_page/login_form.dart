@@ -64,7 +64,7 @@ class _LoginFormState extends State<LoginForm> {
           showSnackbar(
             context,
             "Error al buscar usuario aleatorio",
-            color: Colors.yellow.shade200,
+            color: Colors.red,
           );
         }
         if (state is GotRandomUserInProgress) {
