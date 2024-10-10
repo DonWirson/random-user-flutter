@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:random_user/core/constants.dart';
 
+import 'core/constants.dart';
+///Contiene temas relacionados a la app.
 class AppTheme {
   static ThemeData theme = ThemeData(
     colorScheme: ColorScheme.fromSeed(
@@ -9,7 +10,7 @@ class AppTheme {
         Constants.blueColor,
       ),
     ),
-    //Los Componentes de material 3 se ven mucho mejor que los de material 2,
+    //Los Componentes de material 3 se ven mejor que los de material 2,
     // pero el documento tiene los botones de material 2, así que.....
     useMaterial3: false,
     //tema de Input, usado en textFormField
